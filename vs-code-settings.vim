@@ -67,8 +67,9 @@ set cursorline
 highlight  CursorLine ctermbg=Yellow ctermfg=None
 
 
-" THEME CHANGER
 
+
+" THEME CHANGER
 function! SetCursorLineNrColorInsert(mode)
     " Insert mode: blue
     if a:mode == "i"
@@ -86,6 +87,15 @@ function! SetCursorLineNrColorVisual()
     call VSCodeNotify('nvim-theme.visual')
 endfunction
 
+vnoremap <silent> <expr> <SID>SetCursorLineNrColorVisual SetCursorLineNrColorVisual()
+nnoremap <silent> <script> v v<SID>SetCursorLineNrColorVisual
+nnoremap <silent> <script> V V<SID>SetCursorLineNrColorVisual
+nnoremap <silent> <script> <C-v> <C-v><SID>SetCursorLineNrColorVisual
+
+function! SetCursorLineNrColorVisual()
+    set updatetime=0
+    call VSCodeNotify('nvim-theme.visual')
+endfunction
 
 vnoremap <silent> <expr> <SID>SetCursorLineNrColorVisual SetCursorLineNrColorVisual()
 nnoremap <silent> <script> v v<SID>SetCursorLineNrColorVisual
@@ -93,29 +103,11 @@ nnoremap <silent> <script> V V<SID>SetCursorLineNrColorVisual
 nnoremap <silent> <script> <C-v> <C-v><SID>SetCursorLineNrColorVisual
 
 
-function! SetCursorLineNrColorSearch()
-    set updatetime=0
-
-    let newInput=input("Pattern: ")
-    " call VSCodeNotify('nvim-theme.search')
-    " call VSCodeNotify('actions.find')
-    "call search(input("Pattern: "), '') <cr>
-    call search(input("Pattern: "), '') <cr>
-    "execute 'normal /' . newInput . "\<CR>"
-    call <Plug>(incsearch-forward)
-endfunction
-
-nnoremap <silent> / :call SetCursorLineNrColorSearch()<CR>
-
-
- 
 augroup CursorLineNrColorSwap
     autocmd!
     autocmd InsertEnter * call SetCursorLineNrColorInsert(v:insertmode)
     autocmd InsertLeave * call VSCodeNotify('nvim-theme.normal')
     autocmd CursorHold * call VSCodeNotify('nvim-theme.normal')
 augroup END
-
-
 
 
