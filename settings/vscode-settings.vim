@@ -1,4 +1,6 @@
 " TODO there is a more contemporary version of this file
+source $HOME/.config/nvim/settings/base-settings.vim
+source $HOME/.config/nvim/plugins/vscode-plugins.vim
 
 "VSCode
 function! s:split(...) abort
@@ -50,22 +52,6 @@ nnoremap <silent> <C-w>_ :<C-u>call VSCodeNotify('workbench.action.toggleEditorW
 
 nnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
 xnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
-
-
-" Navigate with jkl; instead of hjkl
-  noremap ; l
-  noremap l k
-  noremap k j
-  noremap j h
-  noremap h ;
-
-
-" Enable CursorLine
-set cursorline
-
-" Default Colors for CursorLine
-highlight  CursorLine ctermbg=Yellow ctermfg=None
-
 
 
 

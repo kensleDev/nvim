@@ -1,5 +1,4 @@
 
-
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
@@ -17,7 +16,6 @@ call plug#begin('~/.vim/plugged')
 " Initialize plugin system
 call plug#end()
 
- source $HOME/.config/nvim/plugins/sneak.config.vim
- source $HOME/.config/nvim/plugins/quickscope.config.vim
-" source $HOME/.config/nvim/plugins/easymotion.vim
-
+ source $HOME/.config/nvim/plugins/config/sneak.config.vim
+ source $HOME/.config/nvim/plugins/config/quickscope.config.vim
+" source $HOME/.config/nvim/plugins/config/easymotion.vim
