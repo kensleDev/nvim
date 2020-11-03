@@ -1,6 +1,4 @@
 
-let mapleader = ","
-
 if exists('g:vscode')
    source $HOME/.config/nvim/settings/vscode-settings.vim
     " VSCode extension
